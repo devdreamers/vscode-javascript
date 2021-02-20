@@ -42,10 +42,135 @@ const value2 = 4 < 2;
 // || (or)
 console.log(`or: ${value1 || value2 || check()}`);
 
+// often used to compress long if-statement
+// nullableObject && nullableObject.something
+// if (nulableObject != null) {
+//     nullableObject.something
+// }
+
+// && (and)
+console.log(`and: ${value1 && value2 && check()}`);
+
 function check() {
     for (let i = 0; i < 10; i++) {
         //wasting time
         console.log('omg');
     }
     return true;
+}
+
+// ! (not)
+console.log(!value1);
+
+// 7. Equality
+const stringFive = '5';
+const numberFive = 5;
+
+// == loose equality, with type conversion
+console.log(stringFive == numberFive);
+console.log(stringFive != numberFive);
+
+// === strict equality, no type conversion
+console.log(stringFive === numberFive);
+console.log(stringFive !== numberFive);
+
+// object equality by reference
+const ellie1 = { name: 'ellie' };
+const ellie2 = { name: 'ellie' };
+const ellie3 = ellie1;
+console.log(ellie1 == ellie2);
+console.log(ellie1 === ellie2);
+console.log(ellie1 === ellie3);
+
+// equality - puzzler
+console.log(0 == false); // true
+console.log(0 === false); // false
+console.log('' == false); // true
+console.log('' === false); // false
+console.log(null == undefined); // true
+console.log(null === undefined); // false
+
+// 8. Conditional operators: if
+// if, else if, else
+const name = 'df';
+if (name === 'ellie') {
+    console.log('Welcome, Ellie!');
+} else if (name === 'coder') {
+    console.log('You are amazing coder');
+} else {
+    console.log('unkwnon');
+}
+
+// 9. Ternary operaotr: ?
+// condition ? value1 : value2;
+console.log(name === 'ellie' ? 'yes' : 'no');
+
+// 10. Switch statement
+// use for multiple if checks
+// use for enum-like value check
+// use for multiple type checks in TS
+const browser = 'IE';
+switch (browser) {
+    case 'IE':
+        console.log('go away!');
+        break;
+    case 'Chrome':
+        // console.log('love you!');
+        // break;
+    case 'Firefox':
+        console.log('love you!');
+        break;
+    default:
+        console.log('same all!');
+        break;
+}
+
+// 11. Loops
+// while loop, while the condition is truthy,
+// body code is executed.
+// let i = 3;
+// while (i > 0) {
+//     console.log(`while: ${i}`);
+//     i--;
+// }
+
+// do while loop, body code is executed first,
+// then check the condition.
+let i = 3;
+do {
+    console.log(`do while: ${i}`);
+    i--;
+} while (i > 0);
+
+// for loop, for(begin; conditionl step)
+for (i = 3; i > 0; i--) {
+    console.log(`for: ${i}`);
+}
+
+for (let i = 3; i > 0; i = i -2) {
+    // inline variable declaration
+    console.log(`inline variable for: ${i}`);
+}
+
+// nested loops
+// O(n**2)
+//  b
+
+// break, continue
+// Q1. iterate from 0 to 10 and print only even numbers
+// (use continue)
+for (i = 0; i < 11 ; i++) {
+    if ( i % 2 !== 0) {
+        continue;
+    }
+    console.log(`q1. ${i}`);
+}
+
+// Q2. iterate from 0 to 10 and print numbers until
+// reaching 8 (use break)
+for (let i = 0; i < 11; i++) {
+    if (i > 8) {
+        break;
+    }
+    console.log(`q2. ${i}`);
 }
